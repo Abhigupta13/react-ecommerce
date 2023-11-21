@@ -10,6 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import {BrowserRouter as Router,Route,Routes,} from 'react-router-dom';
+import PageNotFound from './pages/404';
+import OrderSuccessPage from './pages/OrderSuccessPage';
+import UserOrdersPage from './pages/UserOrdersPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +32,9 @@ function App() {
     <Route exact path= '/cart' element={<> <Protected/> <CartPage/></>} />
     <Route exact path= '/checkout' element={<> <Protected/> <Checkout/></>} />
     <Route exact path= '/product-detail/:id' element={<> <Protected/> <ProductDetailPage/></>} />
+    <Route exact path= '/order-success/:id' element={<> <OrderSuccessPage/> </>} />
+    <Route exact path= '/orders' element={<> <UserOrdersPage/></>} />
+    <Route exact path= '*' element={<> <PageNotFound/></>} />
     </Routes></Router>
   );
 }
