@@ -2338,77 +2338,46 @@
     {
       "email": "test@gmail.com",
       "password": "Qwerty123",
+      "addresses": [
+        {
+          "name": "Abhishek R",
+          "email": "test@gmail.com",
+          "phone": "1234567788",
+          "street": "11th Main",
+          "city": "Banaglore",
+          "state": "Karnataka",
+          "pinCode": "560034"
+        },
+        {
+          "name": "Abhishek R",
+          "email": "test@gmail.com",
+          "phone": "1234567788",
+          "street": "11th Main",
+          "city": "Banaglore",
+          "state": "Karnataka",
+          "pinCode": "560034"
+        }
+      ],
       "id": 1
     },
     {
       "email": "demo@gmail.com",
       "password": "Qwerty123",
+      "addresses": [
+        {
+          "name": "Abhishek Kumar Gupta",
+          "email": "test@gmail.com",
+          "phone": "8107843028",
+          "street": "east",
+          "city": "Taraon",
+          "state": "Bihar",
+          "pinCode": "821310"
+        }
+      ],
       "id": 2
     }
   ],
   "cart": [
-    {
-      "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 1
-    },
-    {
-      "id": 54,
-      "title": "Pubg Printed Graphic T-Shirt",
-      "description": "Product Description Features: 100% Ultra soft Polyester Jersey. Vibrant & colorful printing on front. Feels soft as cotton without ever cracking",
-      "price": 46,
-      "discountPercentage": 16.44,
-      "rating": 4.62,
-      "stock": 136,
-      "brand": "The Warehouse",
-      "category": "mens-shirts",
-      "thumbnail": "https://i.dummyjson.com/data/products/54/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/54/1.jpg",
-        "https://i.dummyjson.com/data/products/54/2.jpg",
-        "https://i.dummyjson.com/data/products/54/3.jpg",
-        "https://i.dummyjson.com/data/products/54/4.jpg",
-        "https://i.dummyjson.com/data/products/54/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 1
-    },
-    {
-      "id": 8,
-      "title": "Microsoft Surface Laptop 4",
-      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-      "price": 1499,
-      "discountPercentage": 10.23,
-      "rating": 4.43,
-      "stock": 68,
-      "brand": "Microsoft Surface",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/8/1.jpg",
-        "https://i.dummyjson.com/data/products/8/2.jpg",
-        "https://i.dummyjson.com/data/products/8/3.jpg",
-        "https://i.dummyjson.com/data/products/8/4.jpg",
-        "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 2
-    },
     {
       "id": 5,
       "title": "Huawei P30",
@@ -2429,25 +2398,78 @@
       "user": 2
     },
     {
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
       "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/4/1.jpg",
-        "https://i.dummyjson.com/data/products/4/2.jpg",
-        "https://i.dummyjson.com/data/products/4/3.jpg",
-        "https://i.dummyjson.com/data/products/4/4.jpg",
-        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
       ],
-      "quantity": 1,
-      "user": 2,
-      "id": 55
+      "quantity": 2,
+      "user": 1,
+      "id": 6
+    }
+  ],
+  "orders": [
+    {
+      "items": [
+        {
+          "id": 5,
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "quantity": 1,
+          "user": 2
+        }
+      ],
+      "totalAmount": 499,
+      "totalItems": 1,
+      "user": {
+        "email": "demo@gmail.com",
+        "password": "Qwerty123",
+        "addresses": [
+          {
+            "name": "Abhishek Kumar Gupta",
+            "email": "test@gmail.com",
+            "phone": "8107843028",
+            "street": "east",
+            "city": "Taraon",
+            "state": "Bihar",
+            "pinCode": "821310"
+          }
+        ],
+        "id": 2
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Abhishek Kumar Gupta",
+        "email": "test@gmail.com",
+        "phone": "8107843028",
+        "street": "east",
+        "city": "Taraon",
+        "state": "Bihar",
+        "pinCode": "821310"
+      },
+      "id": 1
     }
   ]
 }
