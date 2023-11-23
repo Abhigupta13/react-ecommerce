@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-
 import { selectLoggedInUser, createUserAsync } from '../authSlice';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
@@ -39,7 +37,13 @@ export default function Signup() {
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
               dispatch(
-                createUserAsync({ email: data.email, password: data.password, addresses:[] })
+                createUserAsync({
+                  email: data.email,
+                  password: data.password,
+                  addresses: [],
+                  role:'user'
+                  //TODO: this role can be directly given on backend
+                })
               );
               console.log(data);
             })}
@@ -78,7 +82,6 @@ export default function Signup() {
                 >
                   Password
                 </label>
-             
               </div>
               <div className="mt-2">
                 <input

@@ -17,6 +17,10 @@ import UserProfilePage from './pages/UserProfilePage';
 import { fetchLoggedInUserAsync } from './features/user/userSlice';
 import Logout from './features/auth/components/Logout';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import AdminProductDetailPage from './pages/AdminProductDetailPage';
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import AdminProductFormPage from './pages/AdminDetailFormPage';
+import AdminHome from './pages/AdminHome';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,8 +40,18 @@ function App() {
     <Route exact path= '/signup' element={ <SignupPage/>} />
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />
     <Route exact path= '/checkout' element={<><Protected> <Checkout/> </Protected> </>} />
-    <Route exact path= '/product-detail/:id' element={<> <Protected> <ProductDetailPage/> </Protected> </>} />
-    <Route exact path= '/order-success/:id' element={<> <Protected> <OrderSuccessPage/> </Protected>  </>} />
+    <Route exact path= '/product-detail/:id'
+                 element={<> <Protected> <ProductDetailPage/> </Protected> </>} />
+    <Route exact path= '/admin'
+                 element={ <ProtectedAdmin> <AdminHome/> </ProtectedAdmin>} />
+    <Route exact path= '/admin/product-form' 
+                 element={ <ProtectedAdmin> <AdminProductFormPage/> </ProtectedAdmin> } />
+    <Route exact path= '/admin/product-form/edit/:id' 
+                 element={ <ProtectedAdmin> <AdminProductFormPage/> </ProtectedAdmin> } />
+    <Route exact path= '/admin/product-detail/:id' 
+                 element={<ProtectedAdmin><AdminProductDetailPage/></ProtectedAdmin>} />
+    <Route exact path= '/order-success/:id' 
+                 element={<> <Protected> <OrderSuccessPage/> </Protected>  </>} />
     <Route exact path= '/orders' element={<> <Protected>  <UserOrdersPage/></Protected> </>} />
     <Route exact path= '/profile' element={<> <Protected> <UserProfilePage/> </Protected>  </>} />
     <Route exact path= '/logout' element={<> <Logout/></>} />
