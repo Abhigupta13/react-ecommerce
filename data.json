@@ -4,7 +4,7 @@
       "id": 1,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
-      "price": 993,
+      "price": 9933,
       "discountPercentage": 12.96,
       "rating": 0,
       "stock": 94,
@@ -2403,7 +2403,29 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 1111,
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "deleted": true,
+      "quantity": 1,
+      "user": 3,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -2465,7 +2487,7 @@
         "state": "Karnataka",
         "pinCode": "560034"
       },
-      "status": "pending",
+      "status": "cancelled",
       "id": 1
     },
     {

@@ -21,6 +21,7 @@ import AdminProductDetailPage from './pages/AdminProductDetailPage';
 import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
 import AdminProductFormPage from './pages/AdminDetailFormPage';
 import AdminHome from './pages/AdminHome';
+import AdminOrdersPage from './pages/AdminOrdersPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,8 @@ function App() {
                  element={<> <Protected> <ProductDetailPage/> </Protected> </>} />
     <Route exact path= '/admin'
                  element={ <ProtectedAdmin> <AdminHome/> </ProtectedAdmin>} />
+    <Route exact path= '/admin/orders'
+                 element={ <ProtectedAdmin> <AdminOrdersPage/> </ProtectedAdmin>} />
     <Route exact path= '/admin/product-form' 
                  element={ <ProtectedAdmin> <AdminProductFormPage/> </ProtectedAdmin> } />
     <Route exact path= '/admin/product-form/edit/:id' 
