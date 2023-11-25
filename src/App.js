@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
-import {BrowserRouter as Router,Route,Routes,} from 'react-router-dom';
+import {BrowserRouter as Router,Route,Routes, RouterProvider,} from 'react-router-dom';
 import PageNotFound from './pages/404';
 import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserOrdersPage from './pages/UserOrdersPage';
@@ -22,6 +22,13 @@ import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
 import AdminProductFormPage from './pages/AdminDetailFormPage';
 import AdminHome from './pages/AdminHome';
 import AdminOrdersPage from './pages/AdminOrdersPage';
+import { positions, Provider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT,
+};
 
 function App() {
   const dispatch = useDispatch();
@@ -34,15 +41,18 @@ function App() {
     }
   },[dispatch, user])
   return (
-
-    <Router><Routes>
+<>
+<Provider template={AlertTemplate} {...options}>
+   <Router>
+      
+      <Routes>
     <Route exact path= '/' element={ <Home/>} />
     <Route exact path= '/login' element={ <LoginPage/> } />
     <Route exact path= '/signup' element={ <SignupPage/>} />
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />
     <Route exact path= '/checkout' element={<><Protected> <Checkout/> </Protected> </>} />
     <Route exact path= '/product-detail/:id'
-                 element={<> <Protected> <ProductDetailPage/> </Protected> </>} />
+                 element={<> <ProductDetailPage/>  </>} />
     <Route exact path= '/admin'
                  element={ <ProtectedAdmin> <AdminHome/> </ProtectedAdmin>} />
     <Route exact path= '/admin/orders'
@@ -61,6 +71,9 @@ function App() {
     <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} />
     <Route exact path= '*' element={<> <PageNotFound/></>} />
     </Routes></Router>
+</Provider>
+   
+</>
   );
 }
 
