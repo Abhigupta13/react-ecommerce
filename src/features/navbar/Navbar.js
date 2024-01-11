@@ -5,7 +5,7 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { Link, Navigate } from 'react-router-dom';
+import { Link,Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectItems } from '../cart/cartSlice';
 import { selectLoggedInUser } from '../auth/authSlice';
@@ -31,7 +31,7 @@ function NavBar({ children }) {
   const items = useSelector(selectItems);
   const user = useSelector(selectLoggedInUser);
   if(!user){
-    // return <Navigate to='/login' replace={true} ></Navigate>
+     return <Navigate to='/login' replace={true} ></Navigate>
   }
 
   return (
@@ -54,7 +54,7 @@ function NavBar({ children }) {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {user && navigation.map((item) =>
+                        {navigation.map((item) =>
                           item[user.role] ? (
                             <Link
                               key={item.name}
@@ -101,7 +101,7 @@ function NavBar({ children }) {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={user? user.imageUrl : ""}
+                              src={user.imageUrl}
                               alt=""
                             />
                           </Menu.Button>
@@ -180,16 +180,17 @@ function NavBar({ children }) {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src= {user? user.imageUrl : ""}
+                        src={user.imageUrl}
                         alt=""
                       />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
-                        {user? user.name : ""}
+                        {/* this should come from userInfo */}
+                        {user.name}
                       </div>
                       <div className="text-sm font-medium leading-none text-gray-400">
-                      {user? user.email : ""}
+                        {user.email}
                       </div>
                     </div>
                     <Link to="/cart">

@@ -5,6 +5,7 @@ export function addToCart(item) {
       body: JSON.stringify(item),
       headers: { 'content-type': 'application/json' },
     });
+    console.log(response);
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)
     resolve({ data });
