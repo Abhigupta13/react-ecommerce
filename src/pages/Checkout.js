@@ -302,7 +302,7 @@ function Checkout() {
                 Choose from Existing addresses
               </p>
               <ul>
-                {user.addresses.map((address, index) => (
+                {user && user.addresses.map((address, index) => (
                   <li
                     key={index}
                     className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
