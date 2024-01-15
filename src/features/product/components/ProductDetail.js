@@ -3,7 +3,7 @@ import { StarIcon } from '@heroicons/react/20/solid';
 import { RadioGroup } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductByIdAsync, selectProductById, selectProductListStatus } from '../productSlice';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { addToCartAsync, selectItems } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
 import { discountedPrice } from '../../../app/constants';
@@ -53,7 +53,8 @@ export default function ProductDetail() {
 
   const handleCart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.product.id === product.id) < 0) {
+    try {
+       if (items.findIndex((item) => item.product && item.product.id === product.id) < 0) {
       console.log({ items, product });
       const newItem = {
         product: product.id,
@@ -65,6 +66,11 @@ export default function ProductDetail() {
     } else {
       alert.error('Item Already added');
     }
+    } catch (error) {
+      console.error('Error adding item to cart:', error.message);
+    alert.error('Error adding item to Cart');
+    }
+   
   };
 
   useEffect(() => {
@@ -245,12 +251,12 @@ export default function ProductDetail() {
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Size guide
-                    </a>
+                    </Link>
                   </div>
 
                   <RadioGroup

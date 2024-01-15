@@ -76,7 +76,7 @@ function App() {
                  element={<ProtectedAdmin><AdminProductDetailPage/></ProtectedAdmin>} />
     <Route exact path= '/order-success/:id' 
                  element={<> <Protected> <OrderSuccessPage/> </Protected>  </>} />
-    <Route exact path= '/orders' element={<> <Protected>  <UserOrdersPage/></Protected> </>} />
+    <Route exact path= '/my-orders' element={<> <Protected>  <UserOrdersPage/></Protected> </>} />
     <Route exact path= '/profile' element={<> <Protected> <UserProfilePage/> </Protected>  </>} />
     <Route exact path= '/logout' element={<> <Logout/></>} />
     <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} />

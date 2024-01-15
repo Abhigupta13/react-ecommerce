@@ -79,6 +79,10 @@ export default function UserOrders() {
                   <p>Subtotal</p>
                   <p>$ {order.totalAmount}</p>
                 </div>
+                <div className="flex justify-between my-2 text-base font-medium text-red-900">
+                  <p>Payment Method</p>
+                  <p>{order.paymentMethod}</p>
+                </div>
                 <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                   <p>Total Items in Cart</p>
                   <p>{order.totalItems} items</p>
