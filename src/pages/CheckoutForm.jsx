@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `https://ecommerce-server-nu-silk.vercel.app/${currentOrder.id}`,
+        return_url: `https://mern-ecommerce-u3eu.onrender.com/${currentOrder.id}`,
       },
     });
 
