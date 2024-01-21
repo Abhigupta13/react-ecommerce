@@ -7,7 +7,7 @@ import {
   fetchProductById,
   createProduct,
   updateProduct,
-} from './productAPI';
+} from './ProductAPI';
 
 const initialState = {
   products: [],

@@ -8,7 +8,7 @@ import {
   selectBrands,
   selectCategories,
   selectTotalItems,
-} from '../../product/productSlice';
+} from '../../product/ProductSlice';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import {
