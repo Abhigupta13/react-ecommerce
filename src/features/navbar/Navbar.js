@@ -5,11 +5,12 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { Link,Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectItems } from '../cart/cartSlice';
 import { selectLoggedInUser } from '../auth/authSlice';
 import { selectUserInfo } from '../user/userSlice';
+
 
 const navigation = [
   { name: 'Products', link: '/', user: true },
@@ -30,9 +31,6 @@ function classNames(...classes) {
 function NavBar({ children }) {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
-  if(!userInfo){
-     return <Navigate to='/login' replace={true} ></Navigate>
-  }
 
   return (
     <>

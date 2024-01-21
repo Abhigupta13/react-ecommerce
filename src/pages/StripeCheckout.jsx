@@ -18,7 +18,7 @@ export default function StripeCheckout() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    console.log("in stripe checkout",currentOrder.totalAmount);
+    console.log("in stripe checkout",currentOrder.totalAmount,currentOrder.id);
     fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
