@@ -62,7 +62,8 @@ console.log(user);
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900 "
               >
-                Email address   <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button>
+                Email address  demo- akg@gmail.com
+                 {/* <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button> */}
 
               </label>
               <div className="mt-2">
@@ -92,7 +93,7 @@ console.log(user);
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Password
+                  Password demo - Akg@1234
                 </label>
                 <div className="text-sm">
                   <Link
