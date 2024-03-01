@@ -25,6 +25,7 @@ import AdminOrdersPage from './pages/AdminOrdersPage';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import StripeCheckout from './pages/StripeCheckout';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 
 const options = {
   timeout: 5000,
@@ -80,6 +81,7 @@ function App() {
     <Route exact path= '/profile' element={<> <Protected> <UserProfilePage/> </Protected>  </>} />
     <Route exact path= '/logout' element={<> <Logout/></>} />
     <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} />
+    <Route exact path= '/reset-password' element={<> <ResetPasswordPage/></>} />
     <Route exact path= '*' element={<> <PageNotFound/></>} />
     </Routes></Router>
 </Provider>)}
