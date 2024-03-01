@@ -3,23 +3,8 @@ import { selectError, selectLoggedInUser } from '../authSlice';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUserAsync } from '../authSlice';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+
 export default function Login() {
-  const demoEmail="akg@gmail.com";
-  const demoPassword="Akg@1234"
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
- 
-  const handleFill=()=>{
-      // navigator.clipboard.writeText(demoEmail);
-      const copiedEmail = demoEmail; // The text you want to enter into the input field
-      const copiedPassword = demoPassword; // Replace this with the password you want to copy
-      setFormData(prevState => ({ ...prevState, email: copiedEmail }));
-      setFormData(prevState => ({ ...prevState, password: copiedPassword }));
-  }
- 
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const user = useSelector(selectLoggedInUser);
@@ -28,7 +13,8 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-console.log(user);
+
+
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
@@ -43,6 +29,7 @@ console.log(user);
             Log in to your account
           </h2>
         </div>
+
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
@@ -56,12 +43,9 @@ console.log(user);
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900 "
+                className="block text-sm font-medium leading-6 text-gray-900"
               >
-                {/* Email address   <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button> */}
-                Email address  demo- akg@gmail.com
-                 {/* <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button> */}
-
+                Email address (demo - akg@gmail.com)
               </label>
               <div className="mt-2">
                 <input
@@ -73,8 +57,6 @@ console.log(user);
                       message: 'email not valid',
                     },
                   })}
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   type="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -83,14 +65,14 @@ console.log(user);
                 )}
               </div>
             </div>
+
             <div>
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  {/* Password */}
-                  Password demo - Akg@1234
+                  Password (demo-  Akg@1234)
                 </label>
                 <div className="text-sm">
                   <Link
@@ -107,8 +89,6 @@ console.log(user);
                   {...register('password', {
                     required: 'password is required',
                   })}
-                  value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   type="password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -116,11 +96,9 @@ console.log(user);
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
               </div>
-              {/* {error && <p className="text-red-500">{error || error.message}</p>} */}
-              {typeof error === 'string' && (
-        <p className="text-red-500">{error}</p>
-      )}
+              {error && <p className="text-red-500">{error || error.message}</p>}
             </div>
+
             <div>
               <button
                 type="submit"
@@ -130,6 +108,7 @@ console.log(user);
               </button>
             </div>
           </form>
+
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
             <Link
