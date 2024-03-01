@@ -4,7 +4,6 @@ import { Link, Navigate } from 'react-router-dom';
 import { loginUserAsync } from '../authSlice';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-
 export default function Login() {
   const demoEmail="akg@gmail.com";
   const demoPassword="Akg@1234"
@@ -12,7 +11,6 @@ export default function Login() {
     email: '',
     password: ''
   });
-
  
   const handleFill=()=>{
       // navigator.clipboard.writeText(demoEmail);
@@ -31,7 +29,6 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 console.log(user);
-
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
@@ -46,7 +43,6 @@ console.log(user);
             Log in to your account
           </h2>
         </div>
-
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
@@ -62,9 +58,9 @@ console.log(user);
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900 "
               >
-                Email address 
-                 
-               <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button>
+                {/* Email address   <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button> */}
+                Email address  demo- akg@gmail.com
+                 {/* <button type="button" onClick={handleFill} className="ms-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fill Demo User</button> */}
 
               </label>
               <div className="mt-2">
@@ -87,14 +83,14 @@ console.log(user);
                 )}
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Password
+                  {/* Password */}
+                  Password demo - Akg@1234
                 </label>
                 <div className="text-sm">
                   <Link
@@ -124,9 +120,7 @@ console.log(user);
               {typeof error === 'string' && (
         <p className="text-red-500">{error}</p>
       )}
-
             </div>
-
             <div>
               <button
                 type="submit"
@@ -136,7 +130,6 @@ console.log(user);
               </button>
             </div>
           </form>
-
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
             <Link
