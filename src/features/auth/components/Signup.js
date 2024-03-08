@@ -1,20 +1,30 @@
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-
-import { selectLoggedInUser, createUserAsync } from '../authSlice';
-import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { selectError, selectLoggedInUser, createUserAsync } from '../authSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Signup() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   return (
     <>
@@ -45,7 +55,6 @@ export default function Signup() {
                   //TODO: this role can be directly given on backend
                 })
               );
-              console.log(data);
             })}
           >
             <div>
@@ -84,21 +93,30 @@ export default function Signup() {
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  {...register('password', {
-                    required: 'password is required',
-                    pattern: {
-                      value:
-                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
-                      message: `- at least 8 characters\n
-                      - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
-                      - Can contain special characters`,
-                    },
-                  })}
-                  type="password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                <div className="relative">
+                  <input
+                    id="password"
+                    {...register('password', {
+                      required: 'password is required',
+                      pattern: {
+                        value:
+                          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
+                        message: `- at least 8 characters\n
+                        - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n
+                        - Can contain special characters`,
+                      },
+                    })}
+                    type={showPassword ? "text" : "password"}
+                    className="block w-full pr-12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 px-3 py-1.5 text-gray-400 hover:text-gray-500 focus:outline-none"
+                    onClick={togglePasswordVisibility}
+                  >
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  </button>
+                </div>
                 {errors.password && (
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
@@ -108,23 +126,32 @@ export default function Signup() {
             <div>
               <div className="flex items-center justify-between">
                 <label
-                  htmlFor="password"
+                  htmlFor="confirmPassword"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Confirm Password
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="confirmPassword"
-                  {...register('confirmPassword', {
-                    required: 'confirm password is required',
-                    validate: (value, formValues) =>
-                      value === formValues.password || 'password not matching',
-                  })}
-                  type="password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                <div className="relative">
+                  <input
+                    id="confirmPassword"
+                    {...register('confirmPassword', {
+                      required: 'confirm password is required',
+                      validate: (value, formValues) =>
+                        value === formValues.password || 'password not matching',
+                    })}
+                    type={showConfirmPassword ? "text" : "password"}
+                    className="block w-full pr-12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 px-3 py-1.5 text-gray-400 hover:text-gray-500 focus:outline-none"
+                    onClick={toggleConfirmPasswordVisibility}
+                  >
+                    <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
+                  </button>
+                </div>
                 {errors.confirmPassword && (
                   <p className="text-red-500">
                     {errors.confirmPassword.message}
@@ -151,9 +178,8 @@ export default function Signup() {
             >
               Log In
             </Link>
-          </p>
-        </div>
+            </p>
       </div>
-    </>
-  );
-}
+    </div>
+</>
+  )}

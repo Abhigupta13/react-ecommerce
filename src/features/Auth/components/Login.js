@@ -1,8 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { selectError, selectLoggedInUser } from '../authSlice';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
-import { loginUserAsync } from '../authSlice';
 import { useForm } from 'react-hook-form';
+import { selectError, selectLoggedInUser, loginUserAsync } from '../authSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -13,7 +15,11 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [showPassword, setShowPassword] = useState(false);
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <>
@@ -84,14 +90,23 @@ export default function Login() {
                 </div>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  {...register('password', {
-                    required: 'password is required',
-                  })}
-                  type="password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+                <div className="relative">
+                  <input
+                    id="password"
+                    {...register('password', {
+                      required: 'password is required',
+                    })}
+                    type={showPassword ? "text" : "password"}
+                    className="block w-full pr-12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 px-3 py-1.5 text-gray-400 hover:text-gray-500 focus:outline-none"
+                    onClick={togglePasswordVisibility}
+                  >
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  </button>
+                </div>
                 {errors.password && (
                   <p className="text-red-500">{errors.password.message}</p>
                 )}
