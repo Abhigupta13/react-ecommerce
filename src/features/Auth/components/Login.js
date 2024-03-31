@@ -104,7 +104,7 @@ export default function Login() {
                     className="absolute inset-y-0 right-0 px-3 py-1.5 text-gray-400 hover:text-gray-500 focus:outline-none"
                     onClick={togglePasswordVisibility}
                   >
-                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} style={{color: "#0d0c27",}} /> 
                   </button>
                 </div>
                 {errors.password && (

@@ -6,7 +6,6 @@ import {
   selectUserInfoStatus,
   selectUserOrders,
 } from '../userSlice';
-import { discountedPrice } from '../../../app/constants';
 import { Grid } from 'react-loader-spinner';
 
 export default function UserOrders() {
@@ -49,7 +48,7 @@ export default function UserOrders() {
                               <h3>
                                 <a href={item.product.id}>{item.product.title}</a>
                               </h3>
-                              <p className="ml-4">${discountedPrice(item.product)}</p>
+                              <p className="ml-4">${item.product.discountPrice}</p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
                               {item.product.brand}
@@ -78,10 +77,6 @@ export default function UserOrders() {
                 <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                   <p>Subtotal</p>
                   <p>$ {order.totalAmount}</p>
-                </div>
-                <div className="flex justify-between my-2 text-base font-medium text-red-900">
-                  <p>Payment Method</p>
-                  <p>{order.paymentMethod}</p>
                 </div>
                 <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                   <p>Total Items in Cart</p>

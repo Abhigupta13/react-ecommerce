@@ -83,7 +83,7 @@ export default function ResetPassword() {
                     className="btn btn-light"
                     onClick={togglePasswordVisibility}
                   >
-                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} style={{color: "#0d0c27",}} />
                   </button>
                 </div>
                 {errors.password && (
