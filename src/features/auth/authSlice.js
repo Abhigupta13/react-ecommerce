@@ -67,7 +67,6 @@ export const resetPasswordAsync = createAsyncThunk(
   async (data,{rejectWithValue}) => {
     try {
       const response = await resetPassword(data);
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);

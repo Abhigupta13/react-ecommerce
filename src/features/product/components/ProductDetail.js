@@ -9,7 +9,6 @@ import {
 } from '../ProductSlice.js';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync, selectItems } from '../../cart/cartSlice';
-import { selectLoggedInUser } from '../../auth/authSlice';
 import { useAlert } from 'react-alert';
 import { Grid } from 'react-loader-spinner';
 
@@ -32,7 +31,7 @@ export default function ProductDetail() {
   const handleCart = (e) => {
     e.preventDefault();
     if (items.findIndex((item) => item.product.id === product.id) < 0) {
-      console.log({ items, product });
+      // console.log({ items, product });
       const newItem = {
         product: product.id,
         quantity: 1,
