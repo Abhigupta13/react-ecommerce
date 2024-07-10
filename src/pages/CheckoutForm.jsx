@@ -86,15 +86,20 @@ export default function CheckoutForm() {
   }
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+  <form id="payment-form" onSubmit={handleSubmit} className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+  
+    <PaymentElement id="payment-element" options={paymentElementOptions} />
+    <h3>Test card 4242 4242 4242 4242  09/32 999</h3>
+    <button disabled={isLoading || !stripe || !elements} id="submit" className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <span id="button-text">
+        {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+      </span>
+    </button>
+    {/* Show any error or success messages */}
+    {message && <div id="payment-message" className="mt-4 text-sm text-gray-700">{message}</div>}
+  </form>
+</div>
+
   );
 }
