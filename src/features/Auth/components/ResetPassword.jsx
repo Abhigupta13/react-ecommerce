@@ -12,7 +12,7 @@ export default function ResetPassword() {
   const query = new URLSearchParams(window.location.search);
   const token = query.get('token');
   const email = query.get('email');
-  
+
   const dispatch = useDispatch();
   const {
     register,
@@ -32,7 +32,7 @@ export default function ResetPassword() {
 
   return (
     <>
-      {(email && token) ? (
+      {email && token ? (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
@@ -62,7 +62,7 @@ export default function ResetPassword() {
                     New Password
                   </label>
                 </div>
-                <div className="mt-2 input-group">
+                <div className="mt-2 relative">
                   <input
                     id="password"
                     {...register('password', {
@@ -76,14 +76,14 @@ export default function ResetPassword() {
                       },
                     })}
                     type={showPassword ? 'text' : 'password'}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                   <button
                     type="button"
-                    className="btn btn-light"
+                    className="absolute inset-y-0 right-0 px-3 text-gray-500"
                     onClick={togglePasswordVisibility}
                   >
-                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} style={{color: "#0d0c27",}} />
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                   </button>
                 </div>
                 {errors.password && (
@@ -100,7 +100,7 @@ export default function ResetPassword() {
                     Confirm Password
                   </label>
                 </div>
-                <div className="mt-2 input-group">
+                <div className="mt-2 relative">
                   <input
                     id="confirmPassword"
                     {...register('confirmPassword', {
@@ -109,11 +109,11 @@ export default function ResetPassword() {
                         value === formValues.password || 'password not matching',
                     })}
                     type={showConfirmPassword ? 'text' : 'password'}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                   <button
                     type="button"
-                    className="btn btn-light"
+                    className="absolute inset-y-0 right-0 px-3 text-gray-500"
                     onClick={toggleConfirmPasswordVisibility}
                   >
                     <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
@@ -129,7 +129,7 @@ export default function ResetPassword() {
                   <p className="text-red-500">{error}</p>
                 )}
               </div>
-              
+
               <div>
                 <button
                   type="submit"
