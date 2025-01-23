@@ -27,6 +27,7 @@ import AlertTemplate from 'react-alert-template-basic';
 
 import StripeCheckout from './pages/StripeCheckout';
 import ResetPasswordPage from './pages/ResetPasswordPage';
+import LandingPage from './pages/landingPage';
 
 const options = {
   timeout: 5000,
@@ -58,7 +59,7 @@ function App() {
    <Router>
       
       <Routes>
-    <Route exact path= '/' element={ <Protected><Home/></Protected> } />
+    <Route exact path= '/' element={user ? <Protected><Home /></Protected> : <LandingPage />} />
     <Route exact path= '/login' element={ <LoginPage/> } />
     <Route exact path= '/signup' element={ <SignupPage/>} />
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />

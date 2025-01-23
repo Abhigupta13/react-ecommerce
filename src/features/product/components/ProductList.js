@@ -119,7 +119,7 @@ export default function ProductList() {
         ></MobileFilter>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-6  ">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               All Products
             </h1>
@@ -403,7 +403,7 @@ function ProductGrid({ products, status }) {
             <Grid
               height="80"
               width="80"
-              color="rgb(79, 70, 229) "
+              color="rgb(79, 70, 229)"
               ariaLabel="grid-loading"
               radius="12.5"
               wrapperStyle={{}}
@@ -413,12 +413,12 @@ function ProductGrid({ products, status }) {
           ) : null}
           {products.map((product) => (
             <Link to={`/product-detail/${product.id}`} key={product.id}>
-              <div className="group relative border-solid border-2 p-2 border-gray-200">
-                <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+              <div className="group relative border-solid border-2 p-2 border-gray-200 w-full h-full flex flex-col justify-between">
+                <div className="min-h-60 w-full h-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none">
                   <img
                     src={product.thumbnail}
                     alt={product.title}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    className="object-cover object-center"
                   />
                 </div>
                 <div className="mt-4 flex justify-between">
