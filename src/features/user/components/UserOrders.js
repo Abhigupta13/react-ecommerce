@@ -113,18 +113,19 @@ export default function UserOrders() {
           </div>
         </div>
       ))}
-       {status === 'loading' ? (
+       {status === 'loading' ?(
+      <div className="flex items-center justify-center h-screen">
         <Grid
           height="80"
           width="80"
-          color="rgb(79, 70, 229) "
+          color="rgb(79, 70, 229)"
           ariaLabel="grid-loading"
           radius="12.5"
           wrapperStyle={{}}
-          wrapperClass=""
           visible={true}
         />
-      ) : null}
+      </div>
+    ) : null}
     </div>
   );
 }

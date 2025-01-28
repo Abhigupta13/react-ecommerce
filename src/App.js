@@ -28,6 +28,7 @@ import AlertTemplate from 'react-alert-template-basic';
 import StripeCheckout from './pages/StripeCheckout';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import LandingPage from './pages/landingPage';
+import ScrollToTop from './pages/scrollOnTop';
 
 const options = {
   timeout: 5000,
@@ -57,7 +58,7 @@ function App() {
 {userChecked && (
 <Provider template={AlertTemplate} {...options}>
    <Router>
-      
+   <ScrollToTop />
       <Routes>
     <Route exact path= '/' element={user ? <Protected><Home /></Protected> : <LandingPage />} />
     <Route exact path= '/login' element={ <LoginPage/> } />

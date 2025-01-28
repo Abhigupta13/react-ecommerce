@@ -91,17 +91,18 @@ function Checkout() {
       )}
 
       {status === 'loading' ? (
+      <div className="flex items-center justify-center h-screen">
         <Grid
           height="80"
           width="80"
-          color="rgb(79, 70, 229) "
+          color="rgb(79, 70, 229)"
           ariaLabel="grid-loading"
           radius="12.5"
           wrapperStyle={{}}
-          wrapperClass=""
           visible={true}
         />
-      ) : <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      </div>
+    ) : <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
             {/* This form is for address */}

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createOrder, fetchAllOrders,updateOrder } from './orderAPI';
+import { createOrder, fetchAllOrders, updateOrder } from './orderAPI';
 
 const initialState = {
   orders: [],
@@ -7,33 +7,38 @@ const initialState = {
   currentOrder: null,
   totalOrders: 0
 };
-//we may need more info of current order
 
+// Create Order Async
 export const createOrderAsync = createAsyncThunk(
   'order/createOrder',
   async (order) => {
     const response = await createOrder(order);
-    // The value we return becomes the `fulfilled` action payload
-    return response.data;
-  }
-);
-export const updateOrderAsync = createAsyncThunk(
-  'order/updateOrder',
-  async (order) => {
-    const response = await updateOrder(order);
-    // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
 
-export const fetchAllOrdersAsync = createAsyncThunk(
-  'order/fetchAllOrders',
-  async ({sort, pagination}) => {
-    const response = await fetchAllOrders(sort,pagination);
-    // The value we return becomes the `fulfilled` action payload
+// Update Order Async
+export const updateOrderAsync = createAsyncThunk(
+  'order/updateOrder',
+  async (order) => {
+    const response = await updateOrder(order);
     return response.data;
   }
 );
+
+// Fetch All Orders Async
+export const fetchAllOrdersAsync = createAsyncThunk(
+  'order/fetchAllOrders',
+  async ({sort, pagination}) => {
+    const response = await fetchAllOrders(sort, pagination);
+    return response.data;
+  }
+);
+
+// Selector to get order details by orderId
+export const selectOrderDetails = (state, orderId) => {
+  return state.order.orders.find(order => order.id === orderId);
+};
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -66,9 +71,9 @@ export const orderSlice = createSlice({
       })
       .addCase(updateOrderAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        const index =  state.orders.findIndex(order=>order.id===action.payload.id)
+        const index = state.orders.findIndex(order => order.id === action.payload.id);
         state.orders[index] = action.payload;
-      })
+      });
   },
 });
 
