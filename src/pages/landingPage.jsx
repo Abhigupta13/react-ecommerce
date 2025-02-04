@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
+
       <header className="flex justify-between items-center p-4 bg-gray-100 shadow-md">
         <div>
           <img src="/ecommerce.png" alt="QuickMart Logo" className="h-10 w-auto" />
@@ -40,12 +40,18 @@ export default function LandingPage() {
           <div>
             <Link
               to="/signup"
-              className="bg-indigo-600 text-white px-10 py-3 rounded-md shadow-sm hover:bg-indigo-500"
+              className="bg-indigo-600 text-white px-10 py-3 md-8 rounded-md shadow-sm hover:bg-indigo-500"
             >
               Get Started
             </Link>
+            <div className="mt-8 p-4 bg-yellow-100 border border-blue-200 rounded-lg shadow-sm">
+              <p className="text-md text-blue-800">
+                <span className="font-semibold">⚠️ Please Note:</span> Login and Sign up may take 50-60 seconds to process as our backend is deployed on Render. Thank you for your patience! 🙏
+              </p>
+            </div>
           </div>
         </div>
+   
         <div className="md:w-1/2 flex justify-center">
           <img
             src="/e-commerce1.gif"
