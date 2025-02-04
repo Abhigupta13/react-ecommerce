@@ -1,5 +1,5 @@
 import Home from './pages/Home';
-// import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
@@ -62,8 +62,8 @@ function App() {
    <ScrollToTop />
       <Routes>
     <Route exact path= '/' element={user ? <Protected><Home /></Protected> : <LandingPage />} />
-    {/* <Route exact path= '/login' element={ <Login/> } /> */}
-    <Route exact path= '/signup' element={ <SignupPage/>} />
+    {/* <Route exact path= '/login' element={ <LoginPage/> } /> */}
+    {/* <Route exact path= '/signup' element={ <SignupPage/>} /> */}
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />
     <Route exact path= '/checkout' element={<><Protected> <Checkout/> </Protected> </>} />
     <Route exact path= '/stripe-checkout/' element={<><Protected> <StripeCheckout/> </Protected> </>} />
@@ -83,9 +83,9 @@ function App() {
                  element={<> <Protected> <OrderSuccessPage/> </Protected>  </>} />
     <Route exact path= '/my-orders' element={<> <Protected>  <UserOrdersPage/></Protected> </>} />
     <Route exact path= '/profile' element={<> <Protected> <UserProfilePage/> </Protected>  </>} />
-    <Route exact path= '/logout' element={<> <Logout/></>} />
-    <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} />
-    <Route exact path= '/reset-password' element={<> <ResetPasswordPage/></>} />
+    {/* <Route exact path= '/logout' element={<> <Logout/></>} /> */}
+    {/* <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} /> */}
+    {/* <Route exact path= '/reset-password' element={<> <ResetPasswordPage/></>} /> */}
     <Route exact path= '*' element={<> <PageNotFound/></>} />
     </Routes></Router>
 </Provider>)}
