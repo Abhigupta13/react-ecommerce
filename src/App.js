@@ -4,10 +4,10 @@ import SignupPage from './pages/SignupPage';
 import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
 import ProductDetailPage from './pages/ProductDetailPage';
-import Protected from './features/auth/components/Protected';
+import Protected from './features/Auth/components/Protected';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from './features/auth/authSlice';
+import { checkAuthAsync, selectLoggedInUser, selectUserChecked } from './features/Auth/authSlice';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import PageNotFound from './pages/404';
@@ -15,10 +15,10 @@ import OrderSuccessPage from './pages/OrderSuccessPage';
 import UserOrdersPage from './pages/UserOrdersPage';
 import UserProfilePage from './pages/UserProfilePage';
 import { fetchLoggedInUserAsync } from './features/user/userSlice';
-import Logout from './features/auth/components/Logout';
+import Logout from './features/Auth/components/Logout';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import AdminProductDetailPage from './pages/AdminProductDetailPage';
-import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import ProtectedAdmin from './features/Auth/components/ProtectedAdmin';
 import AdminProductFormPage from './pages/AdminProductFormPage';
 import AdminHome from './pages/AdminHome';
 import AdminOrdersPage from './pages/AdminOrdersPage';
@@ -29,7 +29,6 @@ import StripeCheckout from './pages/StripeCheckout';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import LandingPage from './pages/landingPage';
 import ScrollToTop from './pages/scrollOnTop';
-// import Login from './features/auth/components/Login';
 
 const options = {
   timeout: 5000,
@@ -62,8 +61,8 @@ function App() {
    <ScrollToTop />
       <Routes>
     <Route exact path= '/' element={user ? <Protected><Home /></Protected> : <LandingPage />} />
-    {/* <Route exact path= '/login' element={ <LoginPage/> } /> */}
-    {/* <Route exact path= '/signup' element={ <SignupPage/>} /> */}
+    <Route exact path= '/login' element={ <LoginPage/> } />
+    <Route exact path= '/signup' element={ <SignupPage/>} />
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />
     <Route exact path= '/checkout' element={<><Protected> <Checkout/> </Protected> </>} />
     <Route exact path= '/stripe-checkout/' element={<><Protected> <StripeCheckout/> </Protected> </>} />
@@ -83,9 +82,9 @@ function App() {
                  element={<> <Protected> <OrderSuccessPage/> </Protected>  </>} />
     <Route exact path= '/my-orders' element={<> <Protected>  <UserOrdersPage/></Protected> </>} />
     <Route exact path= '/profile' element={<> <Protected> <UserProfilePage/> </Protected>  </>} />
-    {/* <Route exact path= '/logout' element={<> <Logout/></>} /> */}
-    {/* <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} /> */}
-    {/* <Route exact path= '/reset-password' element={<> <ResetPasswordPage/></>} /> */}
+    <Route exact path= '/logout' element={<> <Logout/></>} />
+    <Route exact path= '/forgot-password' element={<> <ForgotPasswordPage/></>} />
+    <Route exact path= '/reset-password' element={<> <ResetPasswordPage/></>} />
     <Route exact path= '*' element={<> <PageNotFound/></>} />
     </Routes></Router>
 </Provider>)}

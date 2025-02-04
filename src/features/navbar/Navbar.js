@@ -4,7 +4,7 @@ import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outl
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectItems } from '../cart/cartSlice';
-import { selectLoggedInUser } from '../auth/authSlice';
+import { selectLoggedInUser } from '../Auth/authSlice';
 import { selectUserInfo } from '../user/userSlice';
 
 const navigation = [
