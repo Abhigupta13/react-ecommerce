@@ -29,7 +29,7 @@ import StripeCheckout from './pages/StripeCheckout';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import LandingPage from './pages/landingPage';
 import ScrollToTop from './pages/scrollOnTop';
-import Login from './features/auth/components/Login';
+// import Login from './features/auth/components/Login';
 
 const options = {
   timeout: 5000,
@@ -62,7 +62,7 @@ function App() {
    <ScrollToTop />
       <Routes>
     <Route exact path= '/' element={user ? <Protected><Home /></Protected> : <LandingPage />} />
-    <Route exact path= '/login' element={ <Login/> } />
+    {/* <Route exact path= '/login' element={ <Login/> } /> */}
     <Route exact path= '/signup' element={ <SignupPage/>} />
     <Route exact path= '/cart' element={<> <Protected> <CartPage/> </Protected> </>} />
     <Route exact path= '/checkout' element={<><Protected> <Checkout/> </Protected> </>} />
