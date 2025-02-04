@@ -1,8 +1,8 @@
-import Login from './../features/auth/components/Login';
-function LoginPage() {
-    return ( <div>
-        <Login/>
-    </div>  );
-}
+// import Login from './../features/auth/components/Login';
+// function LoginPage() {
+//     return ( <div>
+//         <Login/>
+//     </div>  );
+// }
 
-export default LoginPage;
+// export default LoginPage;
