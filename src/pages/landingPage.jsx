@@ -39,7 +39,7 @@ export default function LandingPage() {
           </ul>
           <div>
             <Link
-              to="/signup"
+              to="/login"
               className="bg-indigo-600 text-white px-10 py-3 md-8 rounded-md shadow-sm hover:bg-indigo-500"
             >
               Get Started
