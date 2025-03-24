@@ -44,11 +44,11 @@ export default function LandingPage() {
             >
               Get Started
             </Link>
-            <div className="mt-8 p-4 bg-yellow-100 border border-blue-200 rounded-lg shadow-sm">
+            {/* <div className="mt-8 p-4 bg-yellow-100 border border-blue-200 rounded-lg shadow-sm">
               <p className="text-md text-blue-800">
                 <span className="font-semibold">⚠️ Please Note:</span> Login and Sign up may take 50-60 seconds to process as our backend is deployed on Render. Thank you for your patience! 🙏
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
    
